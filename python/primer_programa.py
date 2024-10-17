@@ -69,52 +69,204 @@ for i in range(1,10,1):
        a,b=b,a+b   
     print() """
     
-import mysql.connector
+# import mysql.connector
 
-config ={
-    'user':'root',
-    'password':'',
-    'host':'localhost',
-    'database':'db1'
-}
+# config ={
+#     'user':'root',
+#     'password':'',
+#     'host':'localhost',
+#     'database':'db1'
+# }
 
-cnx=mysql.connector.connect(**config)
-cursor = cnx.cursor()
-query = ("SELECT nombre FROM empleado")
-cursor.execute(query)
-for name in cursor:
-    print(name)
+# cnx=mysql.connector.connect(**config)
+# cursor = cnx.cursor()
+# query = ("SELECT nombre FROM empleado")
+# cursor.execute(query)
+# for name in cursor:
+#     print(name)
     
-def actualizar_empleado(id_empleado, nuevo_nombre, nuevo_bonop):
+# def actualizar_empleado(id_empleado, nuevo_nombre, nuevo_bonop):
+#     try:
+#         # Conectar a la base de datos
+#         cnx = mysql.connector.connect(**config)
+#         cursor = cnx.cursor()
+
+#         # Consulta para actualizar los valores del empleado
+#         query = """
+#         UPDATE empleado 
+#         SET nombre = %s, bonop = %s 
+#         WHERE id = %s
+#         """
+#         data = (nuevo_nombre, nuevo_bonop, id_empleado)
+
+#         # Ejecutar la consulta
+#         cursor.execute(query, data)
+
+#         # Confirmar los cambios
+#         cnx.commit()
+
+#         print(f"Empleado con ID {id_empleado} ha sido actualizado.")
+
+#     except mysql.connector.Error as err:
+#         print(f"Error: {err}")
+#     finally:
+#         # Cerrar el cursor y la conexión
+#         if cursor:
+#             cursor.close()
+#         if cnx:
+#             cnx.close()
+
+# actualizar_empleado(2, "Gustabo", 500.0)
+# cnx.close
+
+""" contador = 0
+texto = "python tiene mucho poder matematico"
+print(f"el texto '{texto}' tiene {len(texto)} caracteres")
+for letra in texto:
+    if letra==" ":
+        continue
+    contador+=1
+    print(letra,end=" ")
+print()
+print(f"el texto '{texto}' tiene: {contador} letras") """
+
+
+""" email=input("INTRODUCE TU EMAIL, POR FAVOR\n")
+for i in email:
+    if i == "@":
+        arroba=True    
+        break
+else:#se ejecuta una vez se termina el ciclo for, al romper el ciclo esto se salta
+    arroba=False
+
+print(arroba) """
+
+""" 
+los generadores son estructuras que extraen valores de una funcion que se almacenan
+en objetos iterables (que se pueden recorrer)
+
+Se almacenan de uno en uno
+
+cada vez que se almacena un valor, este permanecera en un estado pausado hasta que se solicita el siguiente
+esta caracteristica es conocida como "suspension de estado" """
+
+""" #funcion nomral
+def gerarPares(limite):
+    num=1
+    lista=[]
+    while num<limite:
+        lista.append(num*2)
+        num+=1
+    return lista
+
+print(gerarPares(10))
+
+#generador
+def gerarPares(limite):
+    num=1
+    while True:
+        yield num*2
+        num+=1
+
+pares=gerarPares(10)
+
+print(pares)
+print(next(pares))
+print("shfashdjfhsdjfhsaldkhfsd")
+print(next(pares))
+#entre llamada y llamada el objeto generador entra en un estado de suspención
+ for i in pares:
+    print(i) """ 
+
+""" #Yield From
+#cuando colocamos un asterisco antes de la entrada del argumento de una funcion indicamos que recibira un numero indeterminado de elementos
+#ademas de que lo recibira en forma de tupla
+def generaCiudades(*ciudades):
+    for elemento in ciudades:
+        #for sub in elemento: #el yield from nos evita usar este for
+        yield from elemento
+
+ciudades=generaCiudades("Tuxtla","tapachula","San cristobal", "Arriaga")
+print(next(ciudades))
+print(next(ciudades)) """
+
+#excepciones
+#una excepcion es un error en tiempo de ejecucion, cuando hay un programa correctamente escrito
+#pero durante la ejecucion del programa ocurre un error inesperado no previsto
+""" def sum(num1,num2):
+    return num1+num2
+
+def res(num1,num2):
+    return num1-num2
+
+def mul(num1,num2):
+    return num1*num2
+
+def div(num1,num2):
+    
     try:
-        # Conectar a la base de datos
-        cnx = mysql.connector.connect(**config)
-        cursor = cnx.cursor()
+        return num1/num2
+    except ZeroDivisionError:
+        print("no se puede dividir entre 0")
+        return "operacion erronea"
 
-        # Consulta para actualizar los valores del empleado
-        query = """
-        UPDATE empleado 
-        SET nombre = %s, bonop = %s 
-        WHERE id = %s
-        """
-        data = (nuevo_nombre, nuevo_bonop, id_empleado)
 
-        # Ejecutar la consulta
-        cursor.execute(query, data)
+while True:
+    try:
+        op1=(int(input("introduce el primer numero: ")))
+        op2=(int(input("introduce el segundo numero: ")))
+        break
+    except ValueError:
+        print("ERROR SOLO SE ACEPTAN NUMEROS NUMEROS ENTEROS, INTENTA DE NUEVO")
 
-        # Confirmar los cambios
-        cnx.commit()
 
-        print(f"Empleado con ID {id_empleado} ha sido actualizado.")
 
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-    finally:
-        # Cerrar el cursor y la conexión
-        if cursor:
-            cursor.close()
-        if cnx:
-            cnx.close()
+while True:
+    operacion=(input("introduce la operacion a realisar (sum,res,mul,div): "))
+    if operacion=="sum":
+        print(sum(op1,op2))
+        break
 
-actualizar_empleado(2, "Gustabo", 500.0)
-cnx.close
+    elif operacion=="res": 
+        print(res(op1,op2))
+        break
+
+    elif operacion=="mul":   
+        print(mul(op1,op2))
+        break
+
+    elif operacion=="div":  
+        print(div(op1,op2))
+        break
+    
+    else:
+        print("opcion erronea")
+
+print("operacion ejecutasda, continuacion de ejecucion del programa") """
+
+def divide():
+    while True:
+        try:
+            op1=(float(input("introduce un numero: ")))
+            op2=(float(input("introduce otro numero: ")))            
+            print(f"la division es: {op1/op2}")
+            break
+        except ValueError:
+            print("el valor introducido es erroneo")
+        except ZeroDivisionError:
+            # captura de errores consecutivos
+            print("no puede dividirse entre cero")
+    print("fin del calculo")
+    
+def divide1():
+    while True:
+        try:
+            op1=(float(input("introduce un numero: ")))
+            op2=(float(input("introduce otro numero: ")))            
+            print(f"la division es: {op1/op2}")
+            break
+        except:
+            print("error")
+    print("fin del calculo")
+
+divide1()
