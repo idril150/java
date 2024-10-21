@@ -244,7 +244,7 @@ while True:
 
 print("operacion ejecutasda, continuacion de ejecucion del programa") """
 
-def divide():
+""" def divide():
     while True:
         try:
             op1=(float(input("introduce un numero: ")))
@@ -256,7 +256,8 @@ def divide():
         except ZeroDivisionError:
             # captura de errores consecutivos
             print("no puede dividirse entre cero")
-    print("fin del calculo")
+        finally:#finally se ejecuta si o si
+            print("fin del calculo")
     
 def divide1():
     while True:
@@ -269,4 +270,39 @@ def divide1():
             print("error")
     print("fin del calculo")
 
-divide1()
+divide() """
+
+""" #Lanzamiento de excepciones de forma intencionada
+def evaluaEdad(edad):
+    
+    if edad<=0:
+        raise ValueError("No se permiten edades negativas")
+    
+    if edad<20:
+        return "eres muy joven"
+    elif edad<40:
+        return "eres joven"
+    elif edad<65:
+        return "ya no eres joven"
+    elif edad>64:
+        return "cuidate"
+
+print(evaluaEdad(-18)) """
+
+import math
+
+def raiz(num):
+    if num<0:
+        raise TypeError("el numero no puede ser negativo")
+    else:
+        return math.sqrt(num)
+    
+while True:
+    try:
+        print(raiz(int(input("introduce un numero "))))
+        break
+    except ValueError:
+        print("debe introducir un valor numerico")
+    except TypeError as ErrordeRango:
+        print(ErrordeRango)
+print("programa continuando")
