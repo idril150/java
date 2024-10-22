@@ -32,7 +32,7 @@ ferrari.arrancar()
 print(ferrari.estado()) """
 
 
-class Coche():
+""" class Coche():
     
     def __init__(self):
         self.__largoChasis=250         #estado inicial
@@ -73,4 +73,107 @@ print(carro.arrancar(True))
 print("\n\nsegundo objeto")
 carro2=Coche()
 carro2.estado()
-print(carro2.arrancar(False)) 
+print(carro2.arrancar(False)) """
+
+
+""" #HERENCIA
+class Vehiculos():
+    def __init__(self, marca, modelo):
+        
+        self.marca=marca
+        self.modelo=modelo
+        self.marcha=False
+        self.acelera=False
+        self.frena=False
+    
+    def arrancar(self):
+        self.marcha=True
+    
+    def acelerar(self):
+        self.acelera=True
+    
+    def frenar(self):
+        self.frena=True
+    
+    def estado(self):
+        print(f"Marca: {self.marca}\nModelo: {self.modelo}\nMarcha: {self.marcha}\nAcelera: {self.acelera}\nFrena: {self.frena}")
+    
+class Moto(Vehiculos):
+    hcaballito=""
+    
+    def caballito(self):
+        self.hcaballito="voy haciendo el caballito"
+
+    def pararcaballito(self):
+        self.hcaballito=""
+    
+    def estado(self):
+        super().estado()
+        print(f"{self.hcaballito}")
+        
+class Furgoneta(Vehiculos):
+    
+    def carga(self, cargar):
+        self.cargado=cargar
+        if(self.cargado==True):
+            return "La furgneta esta cargada"
+        else:
+            return "la furgoneta no esta cargada"
+
+class Velectrico(Vehiculos):
+    def __init__(self, marca, modelo):
+        super().__init__(marca, modelo)
+        self.cargando=False
+        self.autonomia=100
+    
+    def cargaEnergia(self):
+        self.cargando=True
+
+class BicicletaElectrica(Velectrico, Vehiculos):
+    pass
+
+miMoto=Moto("honda", "CBR")
+miMoto.estado()
+miMoto.caballito()
+miMoto.estado()
+miMoto.pararcaballito()
+miMoto.estado()
+
+furgo=Furgoneta("Renault", "Kangoo")
+furgo.arrancar()
+furgo.estado()
+print(furgo.carga(False))
+
+bici=BicicletaElectrica("Orbea", "HC130")
+bici.estado() """
+
+""" #Herencia Super
+class Persona():
+    def __init__(self, name, age, direc):
+      self.name = name
+      self.age = age
+      self.direc=direc
+    
+    def descripcion(self):
+        print(f"nombre: {self.name} edad: {self.age} direccion: {self.direc}")
+
+class Empleado(Persona):
+    def __init__(self, salario, antiguedad, nombre_empleado, edad_empleado, residencia_empleado):
+        super().__init__(nombre_empleado, edad_empleado, residencia_empleado)
+        self.salario=salario
+        self.antiguedad=antiguedad
+    
+    def descripcion(self):
+        super().descripcion()
+        print(f"salario: {self.salario}, antiguedad: {self.antiguedad}")
+        
+victor=Empleado(1800,15,"Victor",24,"Chiapas")
+victor.descripcion()
+
+luis=Persona("Luis",27,"Mexico")
+
+
+print(isinstance(victor, Persona))
+print(isinstance(victor, Empleado))
+print(isinstance(luis, Persona))
+print(isinstance(luis, Empleado)) """
