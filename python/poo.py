@@ -177,3 +177,32 @@ print(isinstance(victor, Persona))
 print(isinstance(victor, Empleado))
 print(isinstance(luis, Persona))
 print(isinstance(luis, Empleado)) """
+
+""" #polimorfismo
+
+class Coche():
+    
+    def desplazamiento(self):
+        print("Me desplazo utilizando 4 ruedas")
+
+class Moto():
+    
+    def desplazamiento(self):
+        print ("me desplazo utilizando 2 ruedas")
+
+class Camion():
+    
+    def desplazamiento(self):
+        print ("Me desplazo utilizando 6 ruedas")
+
+def desplazamientoVehiculo(vehiculo):
+    vehiculo.desplazamiento()
+    
+camion=Camion()
+coche=Coche()
+moto=Moto()
+
+desplazamientoVehiculo(camion)
+desplazamientoVehiculo(coche)
+desplazamientoVehiculo(moto) """
+
